@@ -1,0 +1,8 @@
+# macOS metadata
+.DS_Store
+._*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Clean metadata: find . -name '._*' -delete
