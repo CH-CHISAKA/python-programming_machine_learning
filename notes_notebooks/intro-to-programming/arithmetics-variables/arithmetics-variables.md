@@ -147,6 +147,20 @@ The output is 126230400.0
 Note: 
 - You might have noticed the .0 added at the end of the number, which might look unnecessary. This is caused by the fact that in the second calculation, we used a number with a _fractional part (365.25)_, whereas the first calculation multiplied just numbers with no fractional part. 
 
+## Debugging 
+
+One common error when working with variables is to accidentally introduce typos. 
+- For instance, if we spell `hours_per_day` as `hours_per_dy`, Python will error with message NameError: name `hours_per_dy` is not defined. 
+
+![debugging](<debugging.png>)
+
+
+
+
+
+
+
+
 
 
 
