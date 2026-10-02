@@ -5,4 +5,5 @@
 # Jupyter
 .ipynb_checkpoints/
 
-# Clean metadata: find . -name '._*' -delete
+# Clean metadata: find . -name '._*' -delete or dot_clean -m .
+
