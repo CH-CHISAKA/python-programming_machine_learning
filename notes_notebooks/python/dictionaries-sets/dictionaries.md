@@ -1,0 +1,1316 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "7f559675-6286-40b3-be4f-8f2ff1c6cabc",
+   "metadata": {},
+   "source": [
+    "# Dictonaries"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "85cd27f8-d9f0-4196-b818-9efa7b45ece3",
+   "metadata": {},
+   "source": [
+    "These are built-in Python data structures for mapping keys to values (__stores key-value pairs_)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "080fc7b5-2be3-4e4b-abe3-ac43e5117d79",
+   "metadata": {},
+   "source": [
+    "* Store **key–value pairs**  \n",
+    "* Are **ordered** (since Python 3.7)  \n",
+    "* Are **mutable** (values can be added, deleted, or modified)  \n",
+    "* Keys must be **unique** and **immutable**  \n",
+    "* Key and value types **can differ**\n",
+    "\n",
+    "**Examples:**\n",
+    "\n",
+    "| Key | Key Type | Value | Value Type |\n",
+    "| :-- | :-- | :-- | :-- |\n",
+    "| Countries | `str` | Internet country codes | `str` |\n",
+    "| Decimal numbers | `int` | Roman numerals | `str` |\n",
+    "| States | `str` | Agricultural products | List of `str` |\n",
+    "| Hospital patients | `str` | Vital signs | Tuple of `int` and `float` |\n",
+    "| Metric dimensions | `str` | Abbreviations | `str` |\n",
+    "| Inventory codes | `str` | Quantity in stock | `int` |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3c9b9c60-e0bb-40c7-9b51-ea8f4c5a0bc1",
+   "metadata": {},
+   "source": [
+    "## Creating a Dictionary"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e72fb155-0c65-4a7a-a838-1928f1efc341",
+   "metadata": {},
+   "source": [
+    "- A dictionary consists of `key-value` pairs in form of `key: value`, enclosed in curly braces `{}`\n",
+    "- One can create an empty dictionary by using `empty curly braces {}`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "bb79c12c-b930-4573-b27e-39fcc60d7cd0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{}"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "{} # empty dictonary"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ca73cbdf-b519-4bad-abcc-667b23d78541",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type({})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "19ddbff4-fd9c-4c0e-b582-5a722942801d",
+   "metadata": {},
+   "source": [
+    "## Dictionary with key-value pairs"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "5b15c467-b6bf-4abd-bc46-09301b182fa8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "country_codes = {'Kenya': 'KE', 'Switzerland': 'CHF', 'Sweden': 'SE', 'Finland': 'FI', 'South Africa': 'ZA', 'Nepal': 'NP'}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "3219bd89-6800-4a83-9e82-1d933c93287f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'Kenya': 'KE',\n",
+       " 'Switzerland': 'CHF',\n",
+       " 'Sweden': 'SE',\n",
+       " 'Finland': 'FI',\n",
+       " 'South Africa': 'ZA',\n",
+       " 'Nepal': 'NP'}"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6f1a5f8e-d7ec-4791-944e-88a86122a695",
+   "metadata": {},
+   "source": [
+    "## Accessing the value associated with a key"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "19f8ca41-4188-4ef5-8755-405455ab5bf8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'KE'"
+      ]
+     },
+     "execution_count": 16,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes['Kenya']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "e5b44b5b-2993-43e1-82ff-8fd1859c9081",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['KE', 'ZA']"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Returns ['KE', 'ZA']\n",
+    "[country_codes[country] for country in ['Kenya', 'South Africa']]\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f84bdecc-6f02-4ab7-af4e-17803a3cf297",
+   "metadata": {},
+   "source": [
+    "## Checking if a Dictonary is Empty"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "cebf7179-4267-4451-8990-78fa39d9d5f3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Option 1: Length of the Dictionary\n",
+    "len(country_codes)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "88c64505-982f-49bc-9f16-b9d0bf8adf2d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Dictionary not empty\n"
+     ]
+    }
+   ],
+   "source": [
+    "# # Option 2: Dictionary as a Condition – True if the Dictionary is not empty\n",
+    "if country_codes:\n",
+    "    print(\"Dictionary not empty\")\n",
+    "else:\n",
+    "    print(\"Dictionary is empty\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d352c788-e48a-4ee1-8bc6-6c39a7cf7db7",
+   "metadata": {},
+   "source": [
+    "## Clear all the values in a Dictionary"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "b0140154-667b-4a16-a098-5abe70bc1b90",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "'''Using the `clear()` method to remove all the values in the dictionary'''\n",
+    "country_codes.clear()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "9bd3c688-b1cd-4e4c-8c23-6983cb1d42c6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "len(country_codes)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "id": "02143444-fdd1-4da1-b4a1-6fb25653221f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'empty'"
+      ]
+     },
+     "execution_count": 21,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'not empty' if country_codes else 'empty'"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8bc687b2-aa62-4e47-bd73-0ca91db9ab2d",
+   "metadata": {},
+   "source": [
+    "## Iterating "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "id": "99321dd3-ddf4-41c6-b568-8f433a1c8757",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "days_per_month = {'January': 31, 'February': 28, 'March':31}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "id": "622427fd-1314-424f-bcc2-31dcc3f95e3e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'January': 31, 'February': 28, 'March': 31}"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 64,
+   "id": "3d8c7e45-0560-4b4c-a104-a514fc779cd9",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "January\n",
+      "February\n",
+      "March\n"
+     ]
+    }
+   ],
+   "source": [
+    "for month in days_per_month:\n",
+    "    print(month)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 65,
+   "id": "2253dc31-1acb-4f5b-b743-fd849d0855ae",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_items([('January', 31), ('February', 28), ('March', 31)])"
+      ]
+     },
+     "execution_count": 65,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "## The method `items()` returns each key-value pair as a tuple\n",
+    "days_per_month.items()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+   "id": "828e2fa1-8bb4-4fbb-993f-12cc0dd7ff96",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "January has 31 days\n",
+      "February has 28 days\n",
+      "March has 31 days\n"
+     ]
+    }
+   ],
+   "source": [
+    "for month, day in days_per_month.items():\n",
+    "    print(f\"{month} has {day} days\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9a295bfa-2194-4cb3-aa71-6467ece0abb4",
+   "metadata": {},
+   "source": [
+    "## Adding and Updating the Value of an Existing Key-Value Pair"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 67,
+   "id": "45803621-bb81-4c6c-9746-3772caae9934",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "'''Adding a new value to an existing key-value pair'''\n",
+    "days_per_month['April'] = 30"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 68,
+   "id": "126005d2-eb74-4ee6-bca3-3e59595ba33c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'January': 31, 'February': 28, 'March': 31, 'April': 30}"
+      ]
+     },
+     "execution_count": 68,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "id": "76a7cced-6389-4c3a-959b-496b7b360fa8",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('January', 31)\n",
+      "('February', 28)\n",
+      "('March', 31)\n",
+      "('April', 30)\n"
+     ]
+    }
+   ],
+   "source": [
+    "for month in days_per_month.items():\n",
+    "    print(month)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "id": "4e2411e2-4a78-4bc1-9457-f93031a376ef",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "'''Updating the value of an existing key-value pair'''\n",
+    "days_per_month['February'] = 29"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "id": "fb03045a-f2a3-4de1-8f22-811a84aab40d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'January': 31, 'February': 29, 'March': 31, 'April': 30}"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "095ce839-9271-4fa3-9c9d-292e0de9b8ad",
+   "metadata": {},
+   "source": [
+    "## Removing the Value of a Key-Value Pair"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 72,
+   "id": "b10ccc37-3d7f-4149-b006-5db9be172744",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "del days_per_month['January']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 73,
+   "id": "f9da875c-e259-46f8-9f98-0e6cc5a7ca0d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'February': 29, 'March': 31, 'April': 30}"
+      ]
+     },
+     "execution_count": 73,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 74,
+   "id": "8a8725e1-7d62-4143-a4a3-194dfcd8968f",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "'May'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mKeyError\u001b[39m                                  Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[74]\u001b[39m\u001b[32m, line 1\u001b[39m\n\u001b[32m----> \u001b[39m\u001b[32m1\u001b[39m \u001b[38;5;28;01mdel\u001b[39;00m days_per_month[\u001b[33m'May'\u001b[39m] \u001b[38;5;66;03m## KeyError if the key does not exist\u001b[39;00m\n",
+      "\u001b[31mKeyError\u001b[39m: 'May'"
+     ]
+    }
+   ],
+   "source": [
+    "del days_per_month['May'] ## KeyError if the key does not exist"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8dc12b8b-2dbd-41e2-91c0-7fc905b90979",
+   "metadata": {},
+   "source": [
+    "#### The `pop()` method removes a key-value pair and returns the value of the removed key"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 75,
+   "id": "ed47dd26-4a40-496a-a427-9543842726a3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "30"
+      ]
+     },
+     "execution_count": 75,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month.pop('April')  # pop() expects at least one argument; otherwise, a TypeError is raised. \n",
+    "                         # Raises a KeyError if the key does not exist."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "id": "c821b4b2-4e0b-4b20-b004-6aff7c5273b4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'February': 29, 'March': 31}"
+      ]
+     },
+     "execution_count": 76,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "days_per_month"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b05e71e5-3cc5-4c11-a1b3-5c1db7470b92",
+   "metadata": {},
+   "source": [
+    "## Accessing Values using the get() method"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "32b05af8-6902-43f0-999c-b6669f159b6d",
+   "metadata": {},
+   "source": [
+    "- `get()` returns the value for the given key, or None if the key is not found.\n",
+    "- `get()` with a second argument returns that second argument if the key is not found."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "id": "739989fa-325e-4d61-84ae-97e7a0a0d16f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Dictionary mapping Roman numerals to integers\n",
+    "roman_numerals = {'I': 1, 'II': 2, 'III': 3, 'V': 5, 'X': 5}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "id": "0986a25f-c2b0-4bea-9566-ce9f3f7ea4ac",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'I': 1, 'II': 2, 'III': 3, 'V': 5, 'X': 5}"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "roman_numerals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "id": "c4276254-c7d0-42f6-9103-b5ae0c7641c7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 83,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "roman_numerals.get('V')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 84,
+   "id": "57e45db5-c5aa-496a-8d33-80d92ff0e738",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(roman_numerals.get('V'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 85,
+   "id": "3311cd9d-4e8f-4987-b956-d1b6c76b4f6e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "execution_count": 85,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "roman_numerals.pop('III')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 86,
+   "id": "08d49f6f-5e12-40a7-86d4-23694ed9810c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "roman_numerals.get('III')  # None (not displayed in IPython)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 87,
+   "id": "32b44470-c5e9-41b2-ba86-a93a20cf2929",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "None\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(roman_numerals.get('III'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "1b6d1207-f537-417d-894c-29e3ec100ebb",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'III not in dict'"
+      ]
+     },
+     "execution_count": 88,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "roman_numerals.get('III', 'III not in dict')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 89,
+   "id": "777cc0e2-0565-49d3-b294-7413547e8eae",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+     "execution_count": 89,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "roman_numerals.get('V')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4154752f-3fb3-46b8-b6a9-655bec8e8ade",
+   "metadata": {},
+   "source": [
+    "## Testing Whether a Given Key is in the Dictionary"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "id": "c5bdf649-1de1-4d64-9772-a4638b4e69dc",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 90,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'III' in roman_numerals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 91,
+   "id": "d2088c3f-3f07-466a-8d91-08ff3b8454d8",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 91,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'V' in roman_numerals"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 92,
+   "id": "c512a33b-d5d4-4cb9-9c88-7c44c5444d2d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 92,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "'III' not in roman_numerals"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0ea89d22-9795-4354-9464-673ac67d0290",
+   "metadata": {},
+   "source": [
+    "## Dictionary Methods keys() and values()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 93,
+   "id": "ca6b33b0-4ffa-4326-b5b5-e46acd1973df",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4}"
+      ]
+     },
+     "execution_count": 93,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "months = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4}\n",
+    "months"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "07b68892-277f-4b43-95b1-c63923506b32",
+   "metadata": {},
+   "source": [
+    "#### The dictionary method `keys()` returns each key:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 94,
+   "id": "8bc63e8b-b8b4-4860-89df-cc5e7e65329c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_keys(['Jan', 'Feb', 'Mar', 'Apr'])"
+      ]
+     },
+     "execution_count": 94,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "months.keys()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 95,
+   "id": "926084d2-3bf5-46b1-a9c4-2c3ffbfa3e9f",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['Jan', 'Feb', 'Mar', 'Apr']"
+      ]
+     },
+     "execution_count": 95,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(months.keys())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "55dca595-df5f-4c75-a170-791a11fb3801",
+   "metadata": {},
+   "source": [
+    "#### The dictionary method `values()` returns each key:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 96,
+   "id": "f962b442-bc9d-417d-bbaf-de3e9a443079",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "dict_values([1, 2, 3, 4])"
+      ]
+     },
+     "execution_count": 96,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "months.values()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 97,
+   "id": "9c85abbb-ec7b-4cb9-a117-87aadfefbee3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[1, 2, 3, 4]"
+      ]
+     },
+     "execution_count": 97,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(months.values())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "979cfae8-b7db-46e8-80b8-72527301d2e1",
+   "metadata": {},
+   "source": [
+    "**Note:** The methods `items()`, `keys()`, and `values()` return a *view* of the data.  \n",
+    "A view provides access to the current contents of the dictionary — it does **not** store its own copy of the data."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5f2347cb-7995-4037-ad95-fec154481652",
+   "metadata": {},
+   "source": [
+    "<br>\n",
+    "\n",
+    "## Comparing Dictionaries\n",
+    "Comparing two dictionaries returns `True` if both contain the same key–value pairs.  \n",
+    "The order of the key–value pairs does not matter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 98,
+   "id": "ea5d4488-0ea6-4d15-840a-47f2f25fa2c4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "country_capitals1 = {'Belgium': 'Brussels', 'Haitiy': 'Port-au-Prince'}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 99,
+   "id": "6ed0237c-cabf-41c9-88c4-4eac7620a650",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "country_capitals2 = {'Nepal': 'Kathmandu', 'Uruguay': 'Monteviedeo'}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 100,
+   "id": "86de1ccf-3e26-482d-a71a-1daafa1524aa",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "country_capitals3 = {'Haitiy': 'Port-au-Prince', 'Belgium': 'Brussels'}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 101,
+   "id": "f9125f96-c42b-4505-9c71-c32d3e333800",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "False"
+      ]
+     },
+     "execution_count": 101,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_capitals1 == country_capitals2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 102,
+   "id": "a3614deb-3c57-4830-b613-f3efae7d4e73",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 102,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_capitals1 == country_capitals3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "id": "2471d3f2-6f7b-468e-8216-975e84971c20",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 103,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_capitals1 != country_capitals2"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4560823e-d83d-4a0c-a79a-9152614e40bf",
+   "metadata": {},
+   "source": [
+    "<br>\n",
+    "\n",
+    "## Dictionary Method `update()`\n",
+    "The `update()` method can insert and update key–value pairs."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "id": "c91c7919-0446-4ef3-82d7-310a0a48f45a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "country_codes = {}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "id": "46b89e27-911d-42d5-b0df-b6841c5710c2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Inserting a Dictionary\n",
+    "country_codes.update({'South Africa': 'za', 'Switzerland': 'ch'})\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "id": "d8a5c3f8-514c-43a2-9fc6-cdfd5f0ed138",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'South Africa': 'za', 'Switzerland': 'ch', 'Australia': 'ar'}"
+      ]
+     },
+     "execution_count": 111,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "id": "273be155-1b9d-4780-8fb2-e4d710cb1494",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Intentionally inserting an incorrect key–value pair\n",
+    "country_codes.update({'Australia':'ar'})\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "id": "041d7444-ce66-418b-8a1a-882105dd1a87",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'South Africa': 'za', 'Switzerland': 'ch', 'Australia': 'ar'}"
+      ]
+     },
+     "execution_count": 113,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 114,
+   "id": "8e2e0efd-7a94-46fd-88db-4efbe3415969",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Correcting the incorrect value\n",
+    "country_codes.update(Australia='au')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 116,
+   "id": "2034a9ea-8ff1-43c0-9a7a-681673549aaa",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'South Africa': 'za', 'Switzerland': 'ch', 'Australia': 'au'}"
+      ]
+     },
+     "execution_count": 116,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 117,
+   "id": "b7178061-3fe5-4947-bffd-82f07333e457",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Inserting key–value pairs as a list of tuples\n",
+    "country_codes.update([('Italy', 'it'), ('Germany', 'ge')])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 118,
+   "id": "5f685d55-d7c7-4aed-9f80-69c1f9ae046e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Inserting key–value pairs as a list of tuples\n",
+    "country_codes.update([('Italy', 'it'), ('Germany', 'ge')])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 123,
+   "id": "4830d709-e018-438d-ba57-7feb5b403b56",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'South Africa': 'za',\n",
+       " 'Switzerland': 'ch',\n",
+       " 'Australia': 'au',\n",
+       " 'Italy': 'it',\n",
+       " 'Germany': 'ge'}"
+      ]
+     },
+     "execution_count": 123,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "country_codes"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6daaf0a1-98d3-41c7-b506-8f61e932c46f",
+   "metadata": {},
+   "source": [
+    "<br>\n",
+    "\n",
+    "## Dictionary Comprehensions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "fd15ff7c-7971-4132-b9e4-c5228de3b567",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
